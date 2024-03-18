@@ -1,7 +1,9 @@
 ---
-- name: Получение мени компьютера
+- name: Получение имени компьютера по IP-адресу
   hosts: 192.168.101.178
   tasks:
-    - name: Получить имя компьютера
+    - name: Собрать факты о хосте
+      ansible.builtin.setup:
+    - name: Вывести имя компьютера
       ansible.builtin.debug:
         msg: "Имя компьютера: {{ ansible_hostname }}"
