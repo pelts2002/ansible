@@ -3,5 +3,5 @@
   tasks:
     - name: Создать пустой текстовый файл
       file:
-        path: "/home/user/Рабочий стол/empty.txt"
+        path: "/home/empty.txt"
         state: touch
