@@ -3,5 +3,5 @@
   tasks:
     - name: Создать пустой текстовый файл
       file:
-        path: "/home/user/Шаблоны/empty.txt"
+        path: "/srv/empty.txt"
         state: touch
