@@ -1,8 +1,11 @@
 ---
-- name: Copy yandex-browser.desktop to Desktop
-  hosts: localhost
+- name: Download and Copy yandex-browser.desktop to Desktop
+  hosts: 192.168.101.54
+  vars:
+    desktop_path: "/home/user/Рабочий\ стол" # Замените user на имя реального пользователя
+    download_url: "https://raw.githubusercontent.com/dspic1978/chgb/master/file/ya_ereisz.desktop"
   tasks:
-    - name: Copy yandex-browser.desktop to Desktop
-      copy:
-        src: /path/to/yandex-browser.desktop
-        dest: ~/Desktop/
+    - name: Download yandex-browser.desktop
+      get_url:
+        url: "{{ download_url }}"
+        dest: "{{ desktop_path }}/yandex-browser.desktop"
