@@ -1,11 +1,23 @@
----
-- name: Download and Copy yandex-browser.desktop to Desktop
-  hosts: 192.168.101.54
-  vars:
-    desktop_path: "/home/user/Рабочий\ стол" # Замените user на имя реального пользователя
-    download_url: "https://raw.githubusercontent.com/dspic1978/chgb/master/file/ya_ereisz.desktop"
+- hosts: all
+  gather_facts: no
   tasks:
-    - name: Download yandex-browser.desktop
-      get_url:
-        url: "{{ download_url }}"
-        dest: "{{ desktop_path }}/yandex-browser.desktop"
+
+  - name: copy file Рабочий стол    
+    ignore_errors: yes
+    copy:
+      src: file/ECP.desktop
+      dest: /home/user/Рабочий стол/ECP.desktop
+      owner: user
+      group: users
+      mode: 0744
+      force: yes
+
+  - name: copy file Desktop    
+    ignore_errors: yes
+    copy:
+      src: file/ECP.desktop
+      dest: /home/user/Desktop/ECP.desktop
+      owner: user
+      group: users
+      mode: 0744
+      force: yes
