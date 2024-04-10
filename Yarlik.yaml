@@ -1,0 +1,8 @@
+---
+- name: Copy yandex-browser.desktop to Desktop
+  hosts: localhost
+  tasks:
+    - name: Copy yandex-browser.desktop to Desktop
+      copy:
+        src: /path/to/yandex-browser.desktop
+        dest: ~/Desktop/
