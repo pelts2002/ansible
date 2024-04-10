@@ -1,12 +1,12 @@
-- hosts: all
+- hosts: 192.168.101.54
   gather_facts: no
   tasks:
 
   - name: copy file Рабочий стол    
     ignore_errors: yes
     copy:
-      src: file/ECP.desktop
-      dest: /home/user/Рабочий стол/ECP.desktop
+      src: /opt/ya_ereisz.desktop
+      dest: /home/user/Рабочий стол/Лекарства.desktop
       owner: user
       group: users
       mode: 0744
@@ -15,8 +15,8 @@
   - name: copy file Desktop    
     ignore_errors: yes
     copy:
-      src: file/ECP.desktop
-      dest: /home/user/Desktop/ECP.desktop
+      src: /opt/ya_ereisz.desktop
+      dest: /home/user/Desktop/Лекарства.desktop
       owner: user
       group: users
       mode: 0744
