@@ -1,23 +1,55 @@
 - hosts: all
   gather_facts: no
   tasks:
+  
+  - name: Проверяем yandex-browser-stable
+    stat:
+      path: /usr/bin/yandex-browser-stable
+    register: browser_stable_file
 
-  - name: copy file Рабочий стол    
-    ignore_errors: yes
+  - name: Проверка на yandex-browser 
+    stat:
+      path: /usr/bin/yandex-browser
+    register: browser_file
+
+  - name: Copy yandex на Рабочий стол
     copy:
-      src: /opt/ya_ereisz.desktop
-      dest: /home/user/Рабочий стол/Лекарства.desktop
+      src: /opt/yandex.desktop
+      dest: "/home/user/Рабочий стол/Лекарства.desktop"
       owner: user
       group: users
       mode: 0744
       force: yes
+    when: not browser_stable_file.stat.exists
 
-  - name: copy file Desktop    
+  - name: Copy yandex-stable на Рабочий стол
+    copy:
+      src: /opt/yandex-stable.desktop
+      dest: "/home/user/Рабочий стол/Лекарства.desktop"
+      owner: user
+      group: users
+      mode: 0744
+      force: yes
+    when: browser_stable_file.stat.exists
+
+  - name: Copy yandex-stable на Desktop    
     ignore_errors: yes
     copy:
-      src: /opt/ya_ereisz.desktop
+      src: /opt/yandex-stable.desktop
       dest: /home/user/Desktop/Лекарства.desktop
       owner: user
       group: users
       mode: 0744
       force: yes
+    when: browser_stable_file.stat.exists
+
+  - name: copy file Desktop    
+    ignore_errors: yes
+    copy:
+      src: /opt/yandex.desktop
+      dest: /home/user/Desktop/Лекарства.desktop
+      owner: user
+      group: users
+      mode: 0744
+      force: yes
+    when: not browser_stable_file.stat.exists
