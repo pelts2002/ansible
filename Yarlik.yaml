@@ -20,7 +20,7 @@
       group: users
       mode: 0744
       force: yes
-    when: not browser_file.stat.exists
+    when: browser_file.stat.exists
 
   - name: Copy yandex-stable на Рабочий стол
     copy:
@@ -52,4 +52,4 @@
       group: users
       mode: 0744
       force: yes
-    when: not browser_file.stat.exists
+    when: browser_file.stat.exists
