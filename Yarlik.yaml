@@ -43,7 +43,7 @@
       force: yes
     when: browser_stable_file.stat.exists
 
-  - name: copy file Desktop    
+  - name: Copy yandex на Desktop    
     ignore_errors: yes
     copy:
       src: /opt/yandex.desktop
