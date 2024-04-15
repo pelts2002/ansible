@@ -1,0 +1,7 @@
+---
+- name: Выполнение любой команды
+  hosts: all
+  tasks:
+    - name: Удаление файла
+      command: "rm /home/user/Рабочий\ стол/Лекарства.desktop"
+      ignore_errors: true
