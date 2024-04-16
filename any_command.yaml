@@ -1,5 +1,8 @@
-- name: Удалить файл
-  hosts: all
-  command: 
-    cmd: "rm '/home/user/Рабочий стол/Лекарства.desktop'"
-  ignore_errors: true
+- hosts: all
+  gather_facts: no
+  tasks:
+  
+  - name: Удалить файл
+    command: 
+      cmd: "rm '/home/user/Рабочий стол/Лекарства.desktop'"
+    ignore_errors: true  
