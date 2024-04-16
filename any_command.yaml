@@ -1,6 +1,5 @@
 - name: Удалить файл
   hosts: all
-  command: "rm '/home/user/Рабочий стол/Лекарства.desktop'"
-  args:
-    warn: no
+  command: 
+    cmd: "rm '/home/user/Рабочий стол/Лекарства.desktop'"
   ignore_errors: true
