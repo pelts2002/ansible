@@ -1,10 +1,10 @@
-- name: Создание пустого текстового файла на рабочем столе
+- name: Лицензии
   hosts: "{{ target_host }}"
   tasks:
 
-  - name: Copy yandex на Рабочий стол
+  - name: Copy lic in srv
     copy:
       # Откуда брать файл
       src: "/opt/Lic/ViPNet/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/{{ name_lic }}"
       # Куда файл доставить
-      dest: "/srv/Lic.dst"
+      dest: "/srv/{{ name_lic }}"
