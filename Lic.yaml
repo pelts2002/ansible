@@ -9,7 +9,7 @@
       # Куда файл доставить
       dest: "/srv/{{ name_lic }}"
       
-    - name: Установить ключ ViPNet
-      command: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
-      register: peremennaya
-    - debug: var=peremennaya.stdout_lines
+  - name: Установить ключ ViPNet
+    command: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
+    register: peremennaya
+  - debug: var=peremennaya.stdout_lines
