@@ -4,7 +4,7 @@
 
   - name: Copy lic in srv
     copy:
-      # Откуда брать файл
+      # Откуда брать файл (Директория контейнера Docker)
       src: "/opt/Lic/ViPNet/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/{{ name_lic }}"
       # Куда файл доставить
       dest: "/srv/{{ name_lic }}"
