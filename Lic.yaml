@@ -13,3 +13,11 @@
     shell: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
     register: peremennaya
   - debug: var=peremennaya.stdout_lines
+
+  - name: Удаляем .dst ключ
+    file:
+      path: "/srv/{{ name_lic }}"
+      state: absent
+
+- name: Отчищаем историю для пользователя и root
+  shell: "> ~/.bash_history && history -c && sudo bash -c 'echo > ~/.bash_history && history -c'"
