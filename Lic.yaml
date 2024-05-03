@@ -19,5 +19,5 @@
       path: "/srv/{{ name_lic }}"
       state: absent
 
-  - name: Отчищаем историю для пользователя и root
-    shell: "> ~/.bash_history && history -c && sudo bash -c 'echo > ~/.bash_history && history -c'"
+#  - name: Отчищаем историю для пользователя и root
+#    shell: "> ~/.bash_history && history -c && sudo bash -c 'echo > ~/.bash_history && history -c'"
