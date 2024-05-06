@@ -7,7 +7,7 @@
       # Откуда брать файл (Директория контейнера Docker)
       src: "/opt/Lic/DrWeb Lin/install ({{ name_lic }}).cfg"
       # Куда файл доставить
-      dest: "/srv/{{ name_lic }}"
+      dest: "/srv/install ({{ name_lic }}).cfg"
       
 #  - name: Установить ключ ViPNet
 #    shell: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
