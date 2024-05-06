@@ -7,14 +7,14 @@
       # Откуда брать файл (Директория контейнера Docker)
       src: "/opt/Lic/DrWeb Lin/install ({{ name_lic }}).cfg"
       # Куда файл доставить
-      dest: "/srv/install ({{ name_lic }}).cfg"
+      dest: "/srv/install{{ name_lic }}.cfg"
       
   - name: Установка лицензии DrWeb
-    shell: "drweb-ctl esconnect --cfgfile '/srv/install ({{ name_lic }}).cfg'"
+    shell: "drweb-ctl esconnect --cfgfile '/srv/install{{ name_lic }}.cfg'"
     register: peremennaya
   - debug: var=peremennaya.stdout_lines
 
   - name: Удаляем .cfg ключ
     file:
-      path: "/srv/install ({{ name_lic }}).cfg"
+      path: "/srv/install{{ name_lic }}.cfg"
       state: absent
