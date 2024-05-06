@@ -9,7 +9,7 @@
       # Куда файл доставить
       dest: "/srv/install ({{ name_lic }}).cfg"
       
-#  - name: Установить ключ ViPNet
+#  - name: Установка ключа DrWeb
 #    shell: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
 #    register: peremennaya
 #  - debug: var=peremennaya.stdout_lines
