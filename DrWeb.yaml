@@ -9,12 +9,12 @@
       # Куда файл доставить
       dest: "/srv/install{{ name_lic }}.cfg"
       
-#  - name: Установка лицензии DrWeb
-#    shell: "drweb-ctl esconnect --cfgfile '/srv/install{{ name_lic }}.cfg'"
-#    register: peremennaya
-#  - debug: var=peremennaya.stdout_lines
+  - name: Установка лицензии DrWeb
+    shell: "drweb-ctl esconnect --cfgfile '/srv/install{{ name_lic }}.cfg'"
+    register: peremennaya
+  - debug: var=peremennaya.stdout_lines
 
-#  - name: Удаляем .cfg ключ
-#    file:
-#      path: "/srv/install{{ name_lic }}.cfg"
-#      state: absent
+  - name: Удаляем .cfg ключ
+    file:
+      path: "/srv/install{{ name_lic }}.cfg"
+      state: absent
