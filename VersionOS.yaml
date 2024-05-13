@@ -13,4 +13,4 @@
 
     - name: Вывести информацию о версии ОС
       debug:
-        msg: "{{ inventory_hostname }} - {{ name_pc.stdout }} - {{ os_version.stdout }}"
+        msg: "{{ name_pc.stdout }} - {{ inventory_hostname }} - {{ os_version.stdout }}"
