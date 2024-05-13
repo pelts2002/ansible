@@ -11,6 +11,6 @@
       register: name_pc
       changed_when: false
 
-    - name: Вывести информацию о версии ОС
+    - name: Выводим информацию о ПК
       debug:
         msg: "{{ name_pc.stdout }} - {{ inventory_hostname }} - {{ os_version.stdout }}"
