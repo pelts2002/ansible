@@ -1,12 +1,11 @@
 - name: Опрос версии ОС на всех устройствах
   hosts: all
   tasks:
-    - name: Получаем версию ОС
+    - name:
       shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: peremennaya
-    
-    - debug:
-        var: peremennaya.stdout_lines
+    - debug: var=peremennaya.stdout_lines
+
       
 
 #    - name: Получаем имя ПК
