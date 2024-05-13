@@ -6,13 +6,11 @@
       register: os_version
       changed_when: false
 
-      
-
-#    - name: Получаем имя ПК
-#      shell: hostname
-#      register: name_pc
-#      changed_when: false
+    - name: Получаем имя ПК
+      shell: hostname
+      register: name_pc
+      changed_when: false
 
     - name: Вывести информацию о версии ОС
       debug:
-        msg: "{{ inventory_hostname }} - {{ ansible_host }} - {{ os_version.stdout }}"
+        msg: "{{ inventory_hostname }} - {{ name_pc.stdout }} - {{ os_version.stdout }}"
