@@ -11,6 +11,6 @@
       register: name_pc
       changed_when: false
 
-    - name: Вывести информацию о версии ОС
+    - name: Вывод информации
       debug:
         msg: "{{ name_pc.stdout }} - {{ ansible_host }} - {{ os_version.stdout }}"
