@@ -1,0 +1,11 @@
+- name: Опрос версии ОС на всех устройствах
+  hosts: all
+  tasks:
+    - name: Получить версию ОС
+      command: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
+      register: os_version
+      changed_when: false
+
+    - name: Вывести информацию о версии ОС
+      debug:
+        msg: "{{ inventory_hostname }} - {{ ansible_host }} - {{ os_version.stdout }}"
