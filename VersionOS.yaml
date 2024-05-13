@@ -4,7 +4,7 @@
     - name:
       shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: os_version
-      debug: os_version.stdout_lines
+      debug: os_version.stdout
 
       
 
