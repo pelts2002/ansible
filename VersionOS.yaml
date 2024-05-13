@@ -4,8 +4,10 @@
     - name: Получаем версию ОС
       shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: peremennaya
-    - debug: var=peremennaya.stdout_lines
-      changed_when: false
+    
+    - debug:
+        var: peremennaya.stdout_lines
+      
 
 #    - name: Получаем имя ПК
 #      shell: hostname
