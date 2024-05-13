@@ -2,12 +2,12 @@
   hosts: all
   tasks:
     - name: Получаем версию ОС
-      shell: "cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '\"' -f 2"
+      shell:"cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '\"' -f 2
       register: os_version
       changed_when: false
 
     - name: Получаем имя ПК
-      shell: "hostname"
+      shell: hostname
       register: name_pc
       changed_when: false
 
