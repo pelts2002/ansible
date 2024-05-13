@@ -1,7 +1,7 @@
 - name: Опрос версии ОС на всех устройствах
   hosts: all
   tasks:
-    - name:
+    - name: Получаем версию ОС
       shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: os_version
       changed_when: false
