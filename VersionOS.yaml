@@ -3,8 +3,8 @@
   tasks:
     - name:
       shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
-      register: peremennaya
-    - debug: var=peremennaya.stdout_lines
+      register: os_version
+    - debug: os_version.stdout_lines
 
       
 
