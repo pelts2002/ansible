@@ -13,4 +13,4 @@
 
     - name: Вывод информации
       debug:
-        msg: "{{ name_pc.stdout }} - {{ ansible_host }} - {{ os_version.stdout }}"
+        msg: "{{ inventory_hostname }} - {{ ansible_host }} - {{ os_version.stdout }}"
