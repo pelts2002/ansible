@@ -8,4 +8,4 @@
 
     - name: Выводим информацию о ПК
       debug:
-        msg: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_distribution }}"
+        msg: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }}"
