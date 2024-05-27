@@ -6,11 +6,11 @@
       register: os_version
       changed_when: false
 
-    - name: Получаем имя ПК
-      shell: hostname
-      register: name_pc
-      changed_when: false
+#    - name: Получаем имя ПК
+#      shell: hostname
+#      register: name_pc
+#      changed_when: false
 
     - name: Выводим информацию о ПК
       debug:
-        msg: "{{ name_pc.stdout }} - {{ ansible_default_ipv4.address }} - {{ os_version.stdout }}"
+        msg: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ os_version.stdout }}"
