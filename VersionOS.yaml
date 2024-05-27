@@ -1,11 +1,6 @@
 - name: Опрос версии ОС на всех устройствах
   hosts: all
   tasks:
-#    - name: Получаем версию ОС
-#      shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
-#      register: os_version
-#      changed_when: false
-
     - name: Выводим информацию о ПК
       debug:
         msg: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }}"
