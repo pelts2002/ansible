@@ -13,4 +13,4 @@
 
     - name: Выводим информацию о ПК
       debug:
-        msg: "{{ name_pc.stdout }} - {{ inventory_hostname }} - {{ os_version.stdout }}"
+        msg: "{{ name_pc.stdout }} - {{ ansible_default_ipv4.address }} - {{ os_version.stdout }}"
