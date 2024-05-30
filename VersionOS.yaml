@@ -6,4 +6,4 @@
       register: peremennaya
       debug:
         msg1: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }}"
-    - debug: var=peremennaya.stdout_lines
+        msg2: peremennaya.stdout_lines
