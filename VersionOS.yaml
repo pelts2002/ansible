@@ -1,10 +1,15 @@
 - name: Опрос версии ОС на всех устройствах
   hosts: all
   tasks:
-    - name:
+    - name: Запуск команды df -h
       command: df -h
       register: peremennaya
-    
+
     - name: Выводим информацию о ПК
       debug:
-        msg: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }} - {{ peremennaya.stdout_lines }}"
+        msg: |
+          Хост: {{ ansible_hostname }}
+          IP: {{ ansible_default_ipv4.address }}
+          Описание ОС: {{ ansible_lsb.description }}
+          Вывод df -h:
+          {{ peremennaya.stdout_lines | join('\n') }}
