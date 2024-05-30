@@ -7,5 +7,5 @@
 
     - name: Выводим информацию о ПК
       debug:
-        Информация об устройстве: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }}"
-        debug: var=peremennaya.stdout_lines
+        msg1: "{{ ansible_hostname }} - {{ ansible_default_ipv4.address }} - {{ ansible_lsb.description }}"
+        msg2: var=peremennaya.stdout_lines
