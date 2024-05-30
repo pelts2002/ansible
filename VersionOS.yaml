@@ -8,7 +8,7 @@
     - name: Выводим информацию о ПК
       debug:
         msg: >
-          Хост: {{ ansible_hostname }}
+          Хост: {{ ansible_hostname }};
           IP: {{ ansible_default_ipv4.address }}
           Описание ОС: {{ ansible_lsb.description }}
           Вывод df -h:
