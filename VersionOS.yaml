@@ -5,11 +5,15 @@
       command: df -h
       register: peremennaya
 
-    - name: Выводим информацию о ПК
-      debug:
-        msg: |
+    - name: Формируем вывод информации о ПК
+      set_fact:
+        info: |
           Хост: {{ ansible_hostname }}
           IP: {{ ansible_default_ipv4.address }}
           Описание ОС: {{ ansible_lsb.description }}
           Вывод df -h:
           {{ peremennaya.stdout_lines | join('\n') }}
+
+    - name: Выводим информацию о ПК
+      debug:
+        var: info
