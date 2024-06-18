@@ -15,11 +15,11 @@
       register: os_pretty_name
 
     - name: Edit file for Red OS
-      shell: wget -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.tar
+      shell: wget -P /srv https://vk.com/doc277744345_677593229?hash=Vq5zR15oz9gHtzwqPFe1dTSHqkkporHs0CAKtru3sF8&dl=qSPTFro7lXc7cfzKkxboZv6lpyRyvVOk7EMOtwxSteH
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Edit file for Astra Linux
-      shell: wget --no-check-certificate -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.7z
+      shell: wget --no-check-certificate -P /srv https://vk.com/doc277744345_677593068?hash=UHiYKpHGRb3KLOkHWSKW8rnoybcja7RsrrT9YZ5P9Wc&dl=ChZAoeIqQEgoRRKa3ewZTUzWmZmzuyNLEreiGlXFcrH
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
