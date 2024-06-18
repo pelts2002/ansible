@@ -19,7 +19,8 @@
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Edit file for Astra Linux
-      shell: wget --no-check-certificate -P /srv https://vk.com/doc277744345_677593068?hash=UHiYKpHGRb3KLOkHWSKW8rnoybcja7RsrrT9YZ5P9Wc&dl=ChZAoeIqQEgoRRKa3ewZTUzWmZmzuyNLEreiGlXFcrH
+      shell: cd /srv && tar -zxf linux-amd64_deb.tgz
+      shell: cd /srv/linux-amd64_deb && ./install.sh
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
