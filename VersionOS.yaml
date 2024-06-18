@@ -23,5 +23,5 @@
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
-      shell: echo "123" | sudo tee /srv/uspex3
+      shell: echo "123" | su tee /srv/uspex3
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
