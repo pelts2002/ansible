@@ -1,6 +1,27 @@
-- name: Опрос версии ОС на всех устройствах
+# - name: Опрос версии ОС на всех устройствах
+# hosts: all
+#  tasks:
+#    - name: Выводим информацию о ПК
+#      debug:
+#        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"
+
+- name: Conditional file editing based on OS
   hosts: all
+  become: yes
+
   tasks:
-    - name: Выводим информацию о ПК
-      debug:
-        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"
+    - name: Get OS pretty name
+      ansible.builtin.shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
+      register: os_pretty_name
+
+    - name: Edit file for Red OS
+      ansible.builtin.command: nano /etc/uspex1
+      when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
+
+    - name: Edit file for Astra Linux
+      ansible.builtin.command: nano /etc/uspex2
+      when: "'Astra Linux' in os_pretty_name.stdout"
+
+    - name: Edit file for Alt Workspace
+      ansible.builtin.command: nano /etc/uspex3
+      when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
