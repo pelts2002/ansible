@@ -15,13 +15,13 @@
       register: os_pretty_name
 
     - name: Edit file for Red OS
-      shell: echo "123" | sudo tee /etc/uspex1
+      shell: echo "123" | sudo tee /srv/uspex1
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Edit file for Astra Linux
-      shell: echo "123" | sudo tee /etc/uspex2
+      shell: echo "123" | sudo tee /srv/uspex2
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
-      shell: echo "123" | sudo tee /etc/uspex3
+      shell: echo "123" | sudo tee /srv/uspex3
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
