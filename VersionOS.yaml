@@ -15,13 +15,13 @@
       register: os_pretty_name
 
     - name: Edit file for Red OS
-      shell: wget -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.7z
+      shell: wget -P /srv https://github.com/pelts2002/ansible/tree/main/linux-amd64/linux-amd64/linux-amd64
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Edit file for Astra Linux
-      shell: wget --no-check-certificate -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.7z
+      shell: wget --no-check-certificate -P /srv https://github.com/pelts2002/ansible/tree/main/linux-amd64/linux-amd64/linux-amd64
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
-      shell: wget -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.7z
+      shell: wget -P /srv https://github.com/pelts2002/ansible/tree/main/linux-amd64/linux-amd64/linux-amd64
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
