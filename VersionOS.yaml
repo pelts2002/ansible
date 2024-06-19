@@ -16,7 +16,12 @@
       register: os_pretty_name
 
     - name: Установка КриптоПро на Red OS
-      shell: 
+      shell: |
+        cd /srv
+        tar -xvf linux-amd64.tgz
+        cd /srv/linux-amd64
+        chmod +x install.sh
+        yes | ./install.sh
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Установка КриптоПро на Astra Linux
