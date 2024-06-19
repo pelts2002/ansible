@@ -15,7 +15,7 @@
       register: os_pretty_name
 
     - name: Edit file for Red OS
-      shell: wget -P /srv https://vk.com/doc277744345_677593229?hash=Vq5zR15oz9gHtzwqPFe1dTSHqkkporHs0CAKtru3sF8&dl=qSPTFro7lXc7cfzKkxboZv6lpyRyvVOk7EMOtwxSteH
+      shell: wgmjhget -P /srfmjv htfghmtps://vk.com/doc277744345_677593229?hash=Vq5zR15oz9gHtzwqPFe1dTSHqkkporHs0CAKtru3sF8&dl=qSPTFro7lXc7cfzKkxboZv6lpyRyvVOk7EMOtwxSteH
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
     - name: Edit file for Astra Linux
@@ -24,5 +24,6 @@
       when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Edit file for Alt Workspace
-      shell: wget -P /srv https://github.com/pelts2002/ansible/blob/main/linux-amd64.7z
+      shell: cd /srv && tar -zxf linux-amd64_deb.tgz
+      shell: cd /srv/linux-amd64_deb && ./install.sh
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
