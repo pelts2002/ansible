@@ -4,7 +4,8 @@
 #    - name: Выводим информацию о ПК
 #      debug:
 #        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"
-# dpkg -l | grep cprocsp
+# dpkg -l | grep cprocsp - проверка пакетов на Астра
+# /opt/cprocsp/sbin/amd64/cpconfig -license -view - Проверка установка на РедОс
 
 - name: Установка КриптоПро
   hosts: all
