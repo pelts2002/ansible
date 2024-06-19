@@ -39,9 +39,8 @@
         cd /srv
         tar -xf linux-amd64.tgz
         cd /srv/linux-amd64
+        apt-get install cprocsp-curl* lsb-cprocsp-base* lsb-cprocsp-capilite* lsb-cprocsp-kc1-64* lsb-cprocsp-rdr-64* -y
         apt-get install cprocsp-cptools* -y
         wget -P /home/user/Рабочий\ стол/ https://raw.githubusercontent.com/pelts2002/ansible/main/cptools.desktop
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
-
-
-#      apt-get install cprocsp-curl* lsb-cprocsp-base* lsb-cprocsp-capilite* lsb-cprocsp-kc1-64* lsb-cprocsp-rdr-64* -y
+      
