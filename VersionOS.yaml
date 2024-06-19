@@ -29,7 +29,7 @@
     - name: Установка КриптоПро на Alt Workspace
       shell: |
         cd /srv
-        tar -zxf linux-amd64_deb.tgz
-        cd /srv/linux-amd64_deb
+        tar -zxf linux-amd64.tgz
+        cd /srv/linux-amd64
         ./install.sh
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
