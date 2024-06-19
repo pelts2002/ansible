@@ -16,22 +16,22 @@
       ansible.builtin.shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: os_pretty_name
 
-#    - name: Установка КриптоПро на Red OS
-#      shell: |
-#        cd /srv
-#        tar -xvf linux-amd64.tgz
-#        cd /srv/linux-amd64
-#        chmod +x install.sh
-#        yes | ./install.sh
-#      when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
+    - name: Установка КриптоПро на Red OS
+      shell: |
+        cd /srv
+        tar -xvf linux-amd64.tgz
+        cd /srv/linux-amd64
+        chmod +x install.sh
+        yes | ./install.sh
+      when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
-#    - name: Установка КриптоПро на Astra Linux
-#      shell: |
-#        cd /srv
-#        tar -zxf linux-amd64_deb.tgz
-#        cd /srv/linux-amd64_deb
-#        ./install.sh
-#      when: "'Astra Linux' in os_pretty_name.stdout"
+    - name: Установка КриптоПро на Astra Linux
+      shell: |
+        cd /srv
+        tar -zxf linux-amd64_deb.tgz
+        cd /srv/linux-amd64_deb
+        ./install.sh
+      when: "'Astra Linux' in os_pretty_name.stdout"
 
     - name: Установка КриптоПро на Alt Workspace
       shell: |
