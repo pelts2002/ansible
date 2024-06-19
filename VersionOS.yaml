@@ -5,25 +5,25 @@
 #      debug:
 #        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"
 
-- name: Conditional file editing based on OS
+- name: Установка КриптоПро
   hosts: all
   become: yes
 
   tasks:
-    - name: Get OS pretty name
+    - name: Смотрим ОС
       ansible.builtin.shell: cat /etc/os-release | grep '^PRETTY_NAME' | cut -d '"' -f 2
       register: os_pretty_name
 
-    - name: Edit file for Red OS
+    - name: Установка КриптоПро на Red OS
       shell: wgmjhget -P /srfmjv htfghmtps://vk.com/doc277744345_677593229?hash=Vq5zR15oz9gHtzwqPFe1dTSHqkkporHs0CAKtru3sF8&dl=qSPTFro7lXc7cfzKkxboZv6lpyRyvVOk7EMOtwxSteH
       when: "'RED OS MUROM (7.3.4)' in os_pretty_name.stdout"
 
-    - name: Edit file for Astra Linux
+    - name: Установка КриптоПро на Astra Linux
       shell: cd /srv && tar -zxf linux-amd64_deb.tgz
       shell: cd /srv/linux-amd64_deb && ./install.sh
       when: "'Astra Linux' in os_pretty_name.stdout"
 
-    - name: Edit file for Alt Workspace
+    - name: Установка КриптоПро на Alt Workspace
       shell: cd /srv && tar -zxf linux-amd64_deb.tgz
       shell: cd /srv/linux-amd64_deb && ./install.sh
       when: "'ALT Workstation 10.2 (Autolycus)' in os_pretty_name.stdout"
