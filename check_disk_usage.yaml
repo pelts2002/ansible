@@ -1,6 +1,0 @@
-- hosts: all
-  tasks:
-    - name:
-      command: df -h
-      register: peremennaya
-    - debug: var=peremennaya.stdout_lines
