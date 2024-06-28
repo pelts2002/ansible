@@ -18,6 +18,4 @@
 
 Также необходимо упомянуть ситуацию, когда playbook.yaml выполнился не на всех узлах. В таком случае при повторном запуске задачи в разделе «Аргументы CLI» необходимо указать команду [«--limit @/etc/ansible/NameFilePlaybook.retry»], где NameFilePlaybook – имя файла плейбука
 
-![](https://github.com/pelts2002/ansible/assets/135302217/6615de17-f7a8-4389-8cff-863918c7a7ec)
-
-
+![](https://github.com/pelts2002/ansible/assets/135302217/df4c6200-22fc-4e5f-925e-3168baf25268)
