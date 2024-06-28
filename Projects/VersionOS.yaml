@@ -1,0 +1,6 @@
+- name: Опрос версии ОС на всех устройствах
+  hosts: all
+  tasks:
+    - name: Выводим информацию о ПК
+      debug:
+        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"

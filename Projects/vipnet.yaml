@@ -1,0 +1,23 @@
+- name: Лицензии
+  hosts: "{{ target_host }}"
+  tasks:
+
+  - name: Copy lic in srv
+    copy:
+      # Откуда брать файл (Директория контейнера Docker)
+      src: "/opt/Lic/ViPNet/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/ГБУЗ ПК Чайковская ЦГБ {{ name_dir_lic }}/{{ name_lic }}"
+      # Куда файл доставить
+      dest: "/srv/{{ name_lic }}"
+      
+  - name: Установить ключ ViPNet
+    shell: "echo '{{ vipnet_password }}' | vipnetclient installkeys /srv/{{ name_lic }}"
+    register: peremennaya
+  - debug: var=peremennaya.stdout_lines
+
+  - name: Удаляем .dst ключ
+    file:
+      path: "/srv/{{ name_lic }}"
+      state: absent
+
+#  - name: Отчищаем историю для пользователя и root
+#    shell: "> ~/.bash_history && history -c && sudo bash -c 'echo > ~/.bash_history && history -c'"

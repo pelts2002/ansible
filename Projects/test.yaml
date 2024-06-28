@@ -1,0 +1,7 @@
+- name: Создание пустого текстового файла на рабочем столе
+  hosts: "{{ target_host }}"
+  tasks:
+    - name: Создать пустой текстовый файл
+      file:
+        path: "/srv/empty.txt"
+        state: touch
