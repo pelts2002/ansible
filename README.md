@@ -18,7 +18,7 @@
   <img src="https://github.com/pelts2002/ansible/assets/135302217/1ff86967-e524-4ba8-80b8-fbd77d1e8910" alt="Sublime's custom image"/>
 </p>
 
-Также необходимо упомянуть ситуацию, когда playbook.yaml выполнился не на всех узлах. В таком случае при повторном запуске задачи в разделе «Аргументы CLI» необходимо указать команду [«--limit @/etc/ansible/NameFilePlaybook.retry»], где NameFilePlaybook – имя файла плейбука
+Также необходимо упомянуть ситуацию, когда playbook.yaml выполнился не на всех узлах. В таком случае при повторном запуске задачи в разделе ***«Аргументы CLI»*** необходимо указать команду [«--limit @/etc/ansible/NameFilePlaybook.retry»], где NameFilePlaybook – имя файла плейбука
 
 <p align="center">
   <img src="https://github.com/pelts2002/ansible/assets/135302217/df4c6200-22fc-4e5f-925e-3168baf25268" alt="Sublime's custom image"/>
