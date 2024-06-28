@@ -10,7 +10,7 @@
      - Password: *отсутствует*
 
 АСУ работает безотказно исключительно на Linux серверах и устанавливается с платформой контейнеризации Docker такими командами, как:
-* `docker pull pelts/ansible_manage:Latest`      *# Команда загрузки Docker-образ с именем "my_first_image" версии "0.10" из репозитория пользователя "pelts" в локальный Docker реестр*
+* `docker pull pelts/ansible_manage:Latest`      *# Команда загрузки Docker-образ с именем "ansible_manage" версии "Latest" из репозитория пользователя "pelts" в локальный Docker реестр*
 * `docker run -d --restart=always -p 3000:3000 pelts/ansible_manage:Latest`      *# Команда запуска Docker-контейнера в фоновом режиме из образа "pelts/ansible_manage:Latest", настраивая автоматический перезапуск при сбоях и маппируя порт 3000 хоста на порт 3000 контейнера*
 
 Также необходимо упомянуть ситуацию, когда playbook.yaml выполнился не на всех узлах. В таком случае при повторном запуске задачи в разделе «Аргументы CLI» необходимо указать команду [«--limit @/etc/ansible/NameFilePlaybook.retry»], где NameFilePlaybook – имя файла плейбука
