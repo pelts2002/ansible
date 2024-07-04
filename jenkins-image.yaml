@@ -1,5 +1,5 @@
 - name: Опрос версии ОС на всех устройствах
-  hosts: 192.168.101.40
+  hosts: jenkins_server
   tasks:
     - name: Выводим информацию о ПК
       debug:
