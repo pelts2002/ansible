@@ -1,29 +1,6 @@
-# Данный playbook на удаленной машине создает
-# dockerfile, который скачивает jenkins-image
-# с установленным python, а затем запускает
-# снимок с пробросом портов
-
-
-- name: Setup Jenkins with Python
-  hosts: 192.168.101.40
-  become: true
+- name: Опрос версии ОС на всех устройствах
+  hosts: all
   tasks:
-    - name: Create Dockerfile for Jenkins with Python
-      copy:
-        dest: /home/ubuntu/Dockerfile
-        content: |
-          FROM jenkins/jenkins:lts
-
-          USER root
-
-          # Install Python
-          RUN apt-get update && apt-get install -y python3
-
-          USER jenkins
-
-    - name: Build Jenkins Docker image
-      command: docker build -t jenkins_python /home/ubuntu/
-
-    - name: Run Jenkins container
-      command: docker run -d -p 8080:8080 -p 50000:50000 --name jenkins_python_container jenkins_python
-      
+    - name: Выводим информацию о ПК
+      debug:
+        msg: "{{ ansible_default_ipv4.address }} - {{ ansible_hostname }} - {{ ansible_lsb.description }}"
