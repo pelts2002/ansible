@@ -1,5 +1,5 @@
 - name: Опрос версии ОС на всех устройствах
-  hosts: jenkins_server
+  hosts: all
   tasks:
     - name: Выводим информацию о ПК
       debug:
