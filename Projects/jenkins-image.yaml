@@ -5,7 +5,7 @@
 
 ---
 - name: Setup Jenkins with Python
-  hosts: jenkins_server
+  hosts: all
   become: true
   tasks:
     - name: Create Dockerfile for Jenkins with Python
