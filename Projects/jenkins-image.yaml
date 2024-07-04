@@ -1,3 +1,9 @@
+# Данный playbook на удаленной машине создает
+# dockerfile, который скачивает jenkins-image
+# с установленным python, а затем запускает
+# снимок с пробросом портов
+
+
 - name: Setup Jenkins with Python
   hosts: all
   become: true
