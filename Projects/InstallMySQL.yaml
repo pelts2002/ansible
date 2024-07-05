@@ -1,0 +1,17 @@
+---
+- name: Install MySQL and check version
+  hosts: all
+  become: yes  # Позволяет выполнить задачи с правами суперпользователя (sudo)
+
+  tasks:
+    - name: Install MySQL
+      package:
+        name: mysql-server
+        state: present  # Убедиться, что пакет установлен
+
+    - name: Check MySQL version
+      command: mysql --version
+      register: mysql_version_output  # Сохранить вывод команды в переменную
+
+    - debug:
+        msg: "MySQL version is {{ mysql_version_output.stdout }}"
