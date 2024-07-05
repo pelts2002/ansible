@@ -9,7 +9,7 @@
   tasks:
     - name: Create Dockerfile for Jenkins with Python
       copy:
-        dest: /home/ubuntu/Dockerfile
+        dest: /home/user/Dockerfile
         content: |
           FROM jenkins/jenkins:lts
 
@@ -21,7 +21,7 @@
           USER jenkins
 
     - name: Build Jenkins Docker image
-      command: docker build -t jenkins_python /home/ubuntu/
+      command: docker build -t jenkins_python /home/user/
 
     - name: Run Jenkins container
       command: docker run -d -p 8080:8080 -p 50000:50000 --name jenkins_python_container jenkins_python     
