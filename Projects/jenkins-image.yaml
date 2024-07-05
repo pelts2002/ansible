@@ -4,7 +4,7 @@
 # снимок с пробросом портов
 
 - name: Setup Jenkins with Python
-  hosts: 192.168.101.40
+  hosts: all
   become: true
   tasks:
     - name: Create Dockerfile for Jenkins with Python
@@ -15,7 +15,6 @@
 
           USER root
 
-          # Install Python
           RUN apt-get update && apt-get install -y python3
 
           USER jenkins
