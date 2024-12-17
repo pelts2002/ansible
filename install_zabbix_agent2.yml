@@ -17,6 +17,12 @@
     ansible.builtin.shell: sudo rm -f /etc/zabbix/zabbix_agent2.conf
     ignore_errors: yes
 
+  - name: Проверка прав на директорию /etc/zabbix
+    ansible.builtin.shell: "touch /etc/zabbix/testfile"
+    become: true
+    become_user: root
+    ignore_errors: yes
+    
   - name: Скачать conf файл с GitHub и сохранить в нужную директорию
     get_url:
       url: https://raw.githubusercontent.com/pelts2002/ansible/refs/heads/main/zabbix_agent2.conf
