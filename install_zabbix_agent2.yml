@@ -20,7 +20,7 @@
   - name: Скачать conf файл с GitHub и сохранить в нужную директорию
     get_url:
       url: https://raw.githubusercontent.com/pelts2002/ansible/refs/heads/main/zabbix_agent2.conf
-      dest: /etc/zabbix
+      dest: /etc/zabbix/zabbix_agent2.conf
       mode: '0644'
 
   - name: меняем hostname в .conf файле
