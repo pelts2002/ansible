@@ -1,6 +1,6 @@
-- name: Установка микросервисов
+- name: Установка zabbix-agent2
   hosts: "{{ ip }}"
-  become: yes
+  become: true
   become_user: root
   become_method: sudo
   tasks:
