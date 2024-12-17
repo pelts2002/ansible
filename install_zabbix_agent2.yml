@@ -18,12 +18,8 @@
     ignore_errors: yes
 
   - name: Скачать conf файл с GitHub и сохранить в нужную директорию
-    get_url:
-      url: https://raw.githubusercontent.com/pelts2002/ansible/refs/heads/main/zabbix_agent2.conf
-      dest: /etc/zabbix/zabbix_agent2.conf
-      mode: '0644'
-    become: true
-    become_user: root
+    ansible.builtin.shell: sudo wget -O /etc/zabbix/zabbix_agent2.conf https://raw.githubusercontent.com/pelts2002/ansible/refs/heads/main/zabbix_agent2.conf
+#    ignore_errors: yes
 
   - name: меняем hostname в .conf файле
     ansible.builtin.shell: echo "Hostname={{ ip }}" | sudo tee -a /etc/zabbix/zabbix_agent2.conf > /dev/null
