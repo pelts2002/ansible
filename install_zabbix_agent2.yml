@@ -1,5 +1,5 @@
 - name: Установка микросервисов
-  hosts: my_hosts
+  hosts: "{{ ip }}"
   become: yes
   become_user: root
   become_method: sudo
@@ -21,6 +21,10 @@
     ansible.builtin.shell: cd /etc/zabbix && sudo wget https://github.com/pelts2002/ansible/blob/main/zabbix_agent2.conf
     ignore_errors: yes
 
+  - name: меняем hostname в .conf файле
+    ansible.builtin.shell: echo "Hostname={{ ip }}" | sudo tee -a /etc/zabbix/zabbix_agent2.conf > /dev/null
+    ignore_errors: yes
+
   - name: restart zabbix
-    ansible.builtin.shell: systemctl restart zabbix-agent2.service
+    ansible.builtin.shell: sudo systemctl restart zabbix-agent2.service
     ignore_errors: yes
