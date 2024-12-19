@@ -5,13 +5,22 @@
   become_method: sudo
   tasks:
 
+#  - name: apt update
+#    ansible.builtin.shell: sudo apt update
+#    ignore_errors: yes
+
+  - name: Скачиваем deb пакет
+    ansible.builtin.shell: sudo wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian12_all.deb
+
+  - name: Устанавливаем через dpkg
+    ansible.builtin.shell: sudo dpkg -i zabbix-release_latest_7.0+debian12_all.deb
+
   - name: apt update
     ansible.builtin.shell: sudo apt update
     ignore_errors: yes
 
-  - name: install zabbix
-    ansible.builtin.shell: sudo apt install zabbix-agent2 -y
-    ignore_errors: yes
+  - name: Производим "apt install zabbix-agent2 zabbix-agent2-plugin-*"
+    ansible.builtin.shell: sudo apt install zabbix-agent2 zabbix-agent2-plugin-*
 
   - name: Удаляем конфигурационный файл zabbix
     ansible.builtin.shell: sudo rm -f /etc/zabbix/zabbix_agent2.conf
@@ -19,7 +28,7 @@
 
   - name: Скачать conf файл с GitHub и сохранить в нужную директорию
     ansible.builtin.shell: sudo wget -O /etc/zabbix/zabbix_agent2.conf https://raw.githubusercontent.com/pelts2002/ansible/refs/heads/main/zabbix_agent2.conf
-    ignore_errors: yes
+#    ignore_errors: yes
 
   - name: меняем hostname в .conf файле
     ansible.builtin.shell: echo "Hostname={{ ip }}" | sudo tee -a /etc/zabbix/zabbix_agent2.conf > /dev/null
@@ -27,4 +36,8 @@
 
   - name: restart zabbix
     ansible.builtin.shell: sudo systemctl restart zabbix-agent2.service
+    ignore_errors: yes
+
+  - name: enable zabbix
+    ansible.builtin.shell: sudo systemctl enable zabbix-agent2
     ignore_errors: yes
