@@ -1,0 +1,14 @@
+- name: Check for service and record IP if found
+  hosts: all
+#  become: yes  # От имени sudo
+  tasks:
+    - name: Populate service facts
+      service_facts:
+
+    - name: Записываем IP адрес в текстовый файл на локальной машине
+      lineinfile:
+        path: /tmp/ansible/ip_adresses.txt
+        line: "{{ ansible_host }}"
+        create: yes
+      when: "'apt-daily-upgrade.timer' in services or 'apt-daily.timer' in services" # Если есть сервис "apt-daily-upgrade.timer" или "apt-daily.timer"
+      delegate_to: localhost
